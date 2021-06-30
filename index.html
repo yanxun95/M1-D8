@@ -45,7 +45,10 @@
        */
 
       const addToTheSecond = function (content) {
-        //
+        let list = document.getElementById('secondList');
+        let entry = document.createElement('li');
+        entry.appendChild(document.createTextNode("4nd"));
+        list.appendChild(entry);
       };
 
       /* EXERCISE 6
@@ -53,7 +56,12 @@
       */
 
       const addParagraph = function (content) {
-        //
+          let x = document.querySelector("div");
+          let newPara = document.createElement("p");
+          let newText = document.createTextNode("New paragraph!");
+          x.append(newPara);
+          newPara.appendChild(newText);
+          x.append(newPara);
       };
 
       /* EXERCISE 7
@@ -61,7 +69,8 @@
       */
 
       const firstUlDisappear = function () {
-        //
+          let invi = document.getElementById('firstList');
+          invi.classList.add("invi");
       };
 
       /* EXERCISE 8
@@ -69,7 +78,10 @@
       */
 
       const paintItGreen = function () {
-        //
+          for (let x of document.getElementsByTagName("ul")){
+            x.classList.add("ulBackGround");
+          }
+
       };
 
       /* EXERCISE 9
@@ -77,30 +89,43 @@
       */
 
       const makeItClickable = function () {
-        //
+        const color = getRandomColor();
+
+        let x = document.getElementsByTagName("h1");
+        x.style.color = color;
       };
+
+      function getRandomColor() {
+        const red = Math.round(Math.random() * 255);
+        const green = Math.round(Math.random() * 255);
+        const blue = Math.round(Math.random() * 255);
+
+        return "rgb(" + red + ", " + green + ", " + blue + ")";
+      }
 
       /* EXERCISE 10
       Change the footer text with something else when the user clicks on it.
       */
 
       const changeFooterText = function () {
-        //
+        document.querySelector("footer p").innerText = "The footer has been change!"
       };
 
       /* EXERCISE 11
       Attach an event listener to the input field in the page for console logging its value just after any keystroke.
       */
 
-      const inputField = document.getElementById("input-field");
-      // ...
+      const displayInput = function () {
+        const inputField = document.getElementById("input-field");
+        console.log("The input: " + inputField.value);
+      };
 
       /* EXERCISE 12
       Create a new welcome alert message when the page successfully loads.
       */
 
       window.onload = function () {
-        //
+          alert("Welcome!")
       };
 
       /* EXERCISE 13
@@ -112,6 +137,15 @@
       .myHeading {
         color: red;
       }
+      
+      .invi {
+          display: none;
+      }
+
+      .ulBackGround {
+          background-color: green;
+      }
+
     </style>
   <script data-dapp-detection="">!function(){let e=!1;function n(){if(!e){const n=document.createElement("meta");n.name="dapp-detected",document.head.appendChild(n),e=!0}}if(window.hasOwnProperty("ethereum")){if(window.__disableDappDetectionInsertion=!0,void 0===window.ethereum)return;n()}else{var t=window.ethereum;Object.defineProperty(window,"ethereum",{configurable:!0,enumerable:!1,set:function(e){window.__disableDappDetectionInsertion||n(),t=e},get:function(){if(!window.__disableDappDetectionInsertion){const e=arguments.callee;e&&e.caller&&e.caller.toString&&-1!==e.caller.toString().indexOf("getOwnPropertyNames")||n()}return t}})}}();</script></head>
   <body>
@@ -154,14 +188,13 @@
     <button onclick="addClassToTitle()">Ex2</button><br>
     <button onclick="changePcontent()">Ex3</button><br>
     <button onclick="changePcontent()">Ex4</button><br>
-    <button onclick="changeUrls()">Ex5</button><br>
-    <button onclick="changeTitle()">Ex6</button><br>
-    <button onclick="changeTitle()">Ex7</button><br>
-    <button onclick="changeTitle()">Ex8</button><br>
-    <button onclick="changeTitle()">Ex9</button><br>
-    <button onclick="changeTitle()">Ex10</button><br>
-    <button onclick="changeTitle()">Ex11</button><br>
-    <button onclick="changeTitle()">Ex12</button><br>
+    <button onclick="addToTheSecond()">Ex5</button><br>
+    <button onclick="addParagraph()">Ex6</button><br>
+    <button onclick="firstUlDisappear()">Ex7</button><br>
+    <button onclick="paintItGreen()">Ex8</button><br>
+    <button onclick="makeItClickable()">Ex9</button><br>
+    <button onclick="changeFooterText()">Ex10</button><br>
+    <button onclick="displayInput()">Ex11</button><br>
     <button onclick="changeTitle()">Ex13</button><br>
 
 </body></html>
