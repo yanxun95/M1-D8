@@ -1,141 +1,10 @@
-
 <!-- saved from url=(0433)https://s3.eu-west-1.amazonaws.com/eduflow-production/activity-resources/411511435634782.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2TAWW44RCEE6YREN%2F20210630%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210630T120340Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%2A%3DUTF-8%27%27D8.html&X-Amz-Signature=4c79b9a7a2a27aaec255364e9595f9074ae378e70421d51bf45a4a804f5341eb -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-    <script>
-      /* EXERCISE 1
-      Write a function for changing the title of the document in something else.
-      */
-
-      const changeTitle = function (newTitle) {
-          document.getElementsByTagName("h1")[0].innerHTML = "The title has been change!!";
-      };
-
-      /* EXERCISE 2
-      Write a function for changing the class of the title of the page in "myHeading".
-      */
-
-      const addClassToTitle = function () {
-          for (let node of document.querySelectorAll("h1, h2")) {
-            node.classList.add("myHeading");
-        }
-      };
-
-      /* EXERCISE 3
-      Write a function for changing the text of only the p which are children of a div.
-      */
-
-      const changePcontent = function () {
-          document.querySelector("div p").innerHTML = "The text has been change!"
-      };
-
-      /* EXERCISE 4
-      Write a function for changing the destination of every link to https://www.google.com
-      */
-
-      const changeUrls = function () {
-          for (let node of document.querySelectorAll("a")) {
-              node.getAttribute("href");
-              node.setAttribute("href", "https://www.google.com");
-              node.textContent = "This link go to google";
-            }
-      };
-
-      /* EXERCISE 5
-       Write a function for adding a new item in the second list.
-       */
-
-      const addToTheSecond = function (content) {
-        let list = document.getElementById('secondList');
-        let entry = document.createElement('li');
-        entry.appendChild(document.createTextNode("4nd"));
-        list.appendChild(entry);
-      };
-
-      /* EXERCISE 6
-      Write a function for adding a second paragraph to the div.
-      */
-
-      const addParagraph = function (content) {
-          let x = document.querySelector("div");
-          let newPara = document.createElement("p");
-          let newText = document.createTextNode("New paragraph!");
-          x.append(newPara);
-          newPara.appendChild(newText);
-          x.append(newPara);
-      };
-
-      /* EXERCISE 7
-      Write a function for making the first UL disappear.
-      */
-
-      const firstUlDisappear = function () {
-          let invi = document.getElementById('firstList');
-          invi.classList.add("invi");
-      };
-
-      /* EXERCISE 8
-      Write a function for making the background of every UL green.
-      */
-
-      const paintItGreen = function () {
-          for (let x of document.getElementsByTagName("ul")){
-            x.classList.add("ulBackGround");
-          }
-
-      };
-
-      /* EXERCISE 9
-      Make the heading of the page change color every time the user clicks on it.
-      */
-
-      const makeItClickable = function () {
-        const color = getRandomColor();
-
-        let x = document.getElementsByTagName("h1");
-        x.style.color = color;
-      };
-
-      function getRandomColor() {
-        const red = Math.round(Math.random() * 255);
-        const green = Math.round(Math.random() * 255);
-        const blue = Math.round(Math.random() * 255);
-
-        return "rgb(" + red + ", " + green + ", " + blue + ")";
-      }
-
-      /* EXERCISE 10
-      Change the footer text with something else when the user clicks on it.
-      */
-
-      const changeFooterText = function () {
-        document.querySelector("footer p").innerText = "The footer has been change!"
-      };
-
-      /* EXERCISE 11
-      Attach an event listener to the input field in the page for console logging its value just after any keystroke.
-      */
-
-      const displayInput = function () {
-        const inputField = document.getElementById("input-field");
-        console.log("The input: " + inputField.value);
-      };
-
-      /* EXERCISE 12
-      Create a new welcome alert message when the page successfully loads.
-      */
-
-      window.onload = function () {
-          alert("Welcome!")
-      };
-
-      /* EXERCISE 13
-      Use HTML5 tags to divide the content of the page in a more semantic way.
-      */
-    </script>
-
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
     <style>
       .myHeading {
-        color: red;
+        color: blue;
       }
       
       .invi {
@@ -144,6 +13,10 @@
 
       .ulBackGround {
           background-color: green;
+      }
+
+      .headerBackground{
+        background-color: var(--main-bg-color);
       }
 
     </style>
@@ -192,8 +65,138 @@
     <button onclick="addParagraph()">Ex6: add paragraph</button><br>
     <button onclick="firstUlDisappear()">Ex7: first UL disappear</button><br>
     <button onclick="paintItGreen()">Ex8: paint to green</button><br>
-    <button onclick="makeItClickable()">Ex9: change the header color everytime the user clicks</button><br>
     <button onclick="changeFooterText()">Ex10: change the footer text</button><br>
-    <button onclick="displayInput()">Ex11: display the value that user input</button><br>
 
-</body></html>
+
+    <script>
+      /* EXERCISE 1
+      Write a function for changing the title of the document in something else.*/
+      
+      const changeTitle = function (newTitle) {
+          document.getElementsByTagName("h1")[0].innerHTML = "The title has been change!!";
+      };
+
+      /* EXERCISE 2
+      Write a function for changing the class of the title of the page in "myHeading".
+      */
+
+      const addClassToTitle = function () {
+          for (let node of document.querySelectorAll("h1, h2")) {
+              node.classList.add("myHeading");
+          }
+      };
+
+      /* EXERCISE 3
+      Write a function for changing the text of only the p which are children of a div.
+      */
+
+      const changePcontent = function () {
+          document.querySelector("div p").innerHTML = "The text has been change!"
+      };
+
+      /* EXERCISE 4
+      Write a function for changing the destination of every link to https://www.google.com
+      */
+
+      const changeUrls = function () {
+          for (let node of document.querySelectorAll("a")) {
+              node.getAttribute("href");
+              node.setAttribute("href", "https://www.google.com");
+              node.textContent = "This link go to google";
+          }
+      };
+
+      /* EXERCISE 5
+      Write a function for adding a new item in the second list.
+      */
+
+      const addToTheSecond = function (content) {
+          let list = document.getElementById('secondList');
+          let entry = document.createElement('li');
+          entry.appendChild(document.createTextNode("4nd"));
+          list.appendChild(entry);
+      };
+
+      /* EXERCISE 6
+      Write a function for adding a second paragraph to the div.
+      */
+
+      const addParagraph = function (content) {
+          let x = document.querySelector("div");
+          let newPara = document.createElement("p");
+          let newText = document.createTextNode("New paragraph!");
+          x.append(newPara);
+          newPara.appendChild(newText);
+          x.append(newPara);
+      };
+
+      /* EXERCISE 7
+      Write a function for making the first UL disappear.
+      */
+
+      const firstUlDisappear = function () {
+          let invi = document.getElementById('firstList');
+          invi.classList.add("invi");
+      };
+
+      /* EXERCISE 8
+      Write a function for making the background of every UL green.
+      */
+
+      const paintItGreen = function () {
+          for (let x of document.getElementsByTagName("ul")){
+              x.classList.add("ulBackGround");
+          }
+      };
+
+      /* EXERCISE 9
+      Make the heading of the page change color every time the user clicks on it.
+      */
+
+      const makeItClickable = function () {
+        const title = document.querySelector("h1");
+        title.addEventListener("click", function (e) {
+          e.target.classList.toggle("myHeading");
+        });
+      };
+      makeItClickable();
+        
+      //     let randomColor = "#"+((1<<24)*Math.random()|0).toString(16); 
+      //     document.documentElement.style.setProperty('main-bg-color', randomColor);
+      //     console.log(randomColor)
+      //     for (let x of document.getElementsByTagName("h1")){
+      //         x.classList.add("headerBackground");
+      //     }
+      // };
+
+      /* EXERCISE 10
+      Change the footer text with something else when the user clicks on it.
+      */
+
+      const changeFooterText = function () {
+          document.querySelector("footer p").innerText = "The footer has been change!"
+      };
+
+      /* EXERCISE 11
+      Attach an event listener to the input field in the page for console logging its value just after any keystroke.
+      */
+
+      const inputField = document.getElementById("input-field");
+        document.onkeypress = function (e) {
+        console.log(inputField.value);
+      };
+
+      /* EXERCISE 12
+      Create a new welcome alert message when the page successfully loads.
+      */
+
+      window.onload = function () {
+          alert("Welcome!")
+      };
+
+      /* EXERCISE 13
+      Use HTML5 tags to divide the content of the page in a more semantic way.
+      */
+  </script>
+</body>
+</html>
